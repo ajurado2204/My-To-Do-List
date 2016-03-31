@@ -8,12 +8,16 @@ function initializer(){
 
 	$('#addbutton').click(function() {
 		if($('textarea.form-control').val() === ""){
-			alert("Please enter your task");
+
+      $('.modal').modal({
+        keyboard: false
+      })
 		}else{
 			var thingsToDo = $('textarea.form-control').val();
 			console.log(thingsToDo);
 			$('table').find('tbody').after(
 				'<tr><td>'+thingsToDo+'</td><td><input type="checkbox" class="check"> Checkbox</td><td><a href="#" class="btn btn-primary btn-sm mydelete">Delete</a></td></tr>');
+      $('textarea.form-control').val("");
 		}
 	});
 
